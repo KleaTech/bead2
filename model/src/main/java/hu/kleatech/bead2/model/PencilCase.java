@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -20,7 +21,7 @@ public class PencilCase implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "owner")
 	private User owner;
-	@OneToMany(mappedBy = "pencilCase")
+	@OneToMany(mappedBy = "pencilCase", fetch = FetchType.EAGER)
 	@Column(name = "pencils")
 	private List<Pencil> pencils;
 	@Id

@@ -14,10 +14,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.view.JstlView;
-import org.springframework.web.servlet.view.UrlBasedViewResolver;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
@@ -55,6 +54,7 @@ public class WebConfig {
 	private Properties hibProperties() {
 		Properties properties = new Properties();
 		properties.put("hibernate.dialect",	env.getRequiredProperty("hibernate.dialect"));
+		properties.put("hibernate.id.new_generator_mappings","false");
 		return properties;
 	}
 
@@ -66,11 +66,19 @@ public class WebConfig {
 	}
 
 	@Bean
+    public ViewResolver viewResolver(){
+        InternalResourceViewResolver result = new InternalResourceViewResolver();
+        result.setPrefix("/WEB-INF/views/");
+        result.setSuffix(".jsp");
+        return result;
+    }
+
+	/*@Bean
 	public UrlBasedViewResolver setupViewResolver() {
-		UrlBasedViewResolver resolver = new UrlBasedViewResolver();
-		resolver.setPrefix("/WEB-INF/views/");
-		resolver.setSuffix(".jsp");
-		resolver.setViewClass(JstlView.class);
-		return resolver;
-	}
+	UrlBasedViewResolver resolver = new UrlBasedViewResolver();
+	resolver.setPrefix("/WEB-INF/views/");
+	resolver.setSuffix(".jsp");
+	resolver.setViewClass(JstlView.class);
+	return resolver;
+	}*/
 }
