@@ -5,7 +5,6 @@ import hu.kleatech.bead2.dao.UserRepository;
 import hu.kleatech.bead2.model.User;
 import java.util.Objects;
 import javax.annotation.Resource;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service

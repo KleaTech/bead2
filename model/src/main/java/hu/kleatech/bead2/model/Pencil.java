@@ -3,15 +3,7 @@ package hu.kleatech.bead2.model;
 
 import java.io.Serializable;
 import java.util.Objects;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "PencilTable")
@@ -41,30 +33,14 @@ public class Pencil implements Serializable {
 		this.sharpness = sharpness;
 		this.pencilCase = pc;
 	}
-	public Color getColor() {
-		return color;
-	}
-	public String getBrand() {
-		return brand;
-	}
-	public int getLength() {
-		return length;
-	}
-	public int getSharpness() {
-		return sharpness;
-	}
-	public PencilCase getPencilCase() {
-		return pencilCase;
-	}
-	public Long getId() {
-		return id;
-	}
-	public void setLength(int length) {
-		this.length = length;
-	}
-	public void setSharpness(int sharpness) {
-		this.sharpness = sharpness;
-	}
+	public Color getColor() { return color;	}
+	public String getBrand() { return brand; }
+	public int getLength() { return length;	}
+	public int getSharpness() {	return sharpness; }
+	public PencilCase getPencilCase() {	return pencilCase; }
+	public Long getId() { return id; }
+	public void setLength(int length) {	this.length = length; }
+	public void setSharpness(int sharpness) { this.sharpness = sharpness; }
 	@Override
 	public String toString() {
 		return "Pencil{" + "color=" + color + ", brand=" + brand + ", length=" + length + ", sharpness=" + sharpness + '}';

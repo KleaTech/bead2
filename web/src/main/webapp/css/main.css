@@ -37,7 +37,6 @@ body {
     display:block;
     height:10vh;
 }
-
 #bodydiv {
     background: rgba(255, 255, 255, 0.9);
     width: 100%;
@@ -46,23 +45,22 @@ body {
 p {
     text-indent: 20px;
 }
-
-.pencil {
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    border-bottom: 2px blue solid;
-    color: navy;
+button, input[type=button] {
+    display: inline-block;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.5);
 }
-.deletebutton, .sharpenbutton, .brakeButton, .usebutton {
-    background-color: dodgerblue;
-    padding: 5px 10px;
-    margin: 5px 0px;
+#newpencilcasebutton {
+    background-color: limegreen;
+    font-weight: bold;
 }
-.deletebutton:hover, .sharpenbutton:hover, .brakeButton:hover, .usebutton:hover {
-    background-color: deepskyblue;
-    padding: 5px 10px;
-    margin: 5px 0px;
+#newpencilcasebutton:hover {
+    background-color: lime;
 }
 
 .pencilcase {
@@ -110,28 +108,26 @@ p {
     color: navy;
 }
 
+.pencil {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-bottom: 2px blue solid;
+    color: navy;
+}
+.deletebutton, .sharpenbutton, .brakeButton, .usebutton {
+    background-color: dodgerblue;
+    padding: 5px 10px;
+    margin: 5px 0px;
+}
+.deletebutton:hover, .sharpenbutton:hover, .brakeButton:hover, .usebutton:hover {
+    background-color: deepskyblue;
+    padding: 5px 10px;
+    margin: 5px 0px;
+}
 .left {
     display:table-cell;
 }
 .right {
     display:table-cell;
-}
-
-button, input[type=button] {
-    display: inline-block;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 10px;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.5);
-}
-
-#newpencilcasebutton {
-    background-color: limegreen;
-    font-weight: bold;
-}
-#newpencilcasebutton:hover {
-    background-color: lime;
 }

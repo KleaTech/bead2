@@ -2,24 +2,13 @@
 package hu.kleatech.bead2.controller;
 
 import hu.kleatech.bead2.controller.ObjectTransferHandler.PencilTransfer;
-import hu.kleatech.bead2.model.Color;
-import hu.kleatech.bead2.model.Pencil;
-import hu.kleatech.bead2.model.User;
-import hu.kleatech.bead2.service.PencilCaseService;
-import hu.kleatech.bead2.service.PencilService;
-import hu.kleatech.bead2.service.UserService;
-import java.util.Locale;
+import hu.kleatech.bead2.model.*;
+import hu.kleatech.bead2.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -29,8 +18,6 @@ public class HomeController {
 	@Autowired private PencilService pencilService;
 	@Autowired private PencilCaseService pencilCaseService;
 	@Autowired private ObjectTransferHandler toc;
-
-	private HttpHeaders emptyHeaders = new HttpHeaders();
 
 	@GetMapping(value={"/", "index"})
 	public ModelAndView index() {

@@ -2,9 +2,7 @@
 package hu.kleatech.bead2.service;
 
 import hu.kleatech.bead2.dao.PencilCaseRepository;
-import hu.kleatech.bead2.model.Pencil;
-import hu.kleatech.bead2.model.PencilCase;
-import hu.kleatech.bead2.model.User;
+import hu.kleatech.bead2.model.*;
 import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +21,7 @@ public class PencilCaseService {
 	}
 
 	public void removePencilCaseWithPencils(PencilCase pc) {
-		pc.getPencils().forEach(pencil -> pencilService.removePencil(pencil));
+		pencilService.removePencils(pc.getPencils());
 		pencilCaseRepository.delete(pc);
 	}
 

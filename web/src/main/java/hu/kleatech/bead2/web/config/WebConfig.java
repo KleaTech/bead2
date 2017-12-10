@@ -4,7 +4,7 @@ package hu.kleatech.bead2.web.config;
 import java.util.Properties;
 import javax.annotation.Resource;
 import javax.sql.DataSource;
-import org.hibernate.ejb.HibernatePersistence;
+import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -43,7 +43,7 @@ public class WebConfig {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
 		entityManagerFactoryBean.setDataSource(dataSource());
-		entityManagerFactoryBean.setPersistenceProviderClass(HibernatePersistence.class);
+		entityManagerFactoryBean.setPersistenceProviderClass(HibernatePersistenceProvider.class);
 		entityManagerFactoryBean.setPackagesToScan(env.getRequiredProperty("entitymanager.packages-to-scan"));
 
 		entityManagerFactoryBean.setJpaProperties(hibProperties());
@@ -54,7 +54,8 @@ public class WebConfig {
 	private Properties hibProperties() {
 		Properties properties = new Properties();
 		properties.put("hibernate.dialect",	env.getRequiredProperty("hibernate.dialect"));
-		properties.put("hibernate.id.new_generator_mappings","false");
+		properties.put("hibernate.id.new_generator_mappings", env.getRequiredProperty("hibernate.id.new_generator_mappings"));
+		properties.put("hibernate.show_sql", env.getRequiredProperty("hibernate.show_sql"));
 		return properties;
 	}
 
@@ -72,13 +73,4 @@ public class WebConfig {
         result.setSuffix(".jsp");
         return result;
     }
-
-	/*@Bean
-	public UrlBasedViewResolver setupViewResolver() {
-	UrlBasedViewResolver resolver = new UrlBasedViewResolver();
-	resolver.setPrefix("/WEB-INF/views/");
-	resolver.setSuffix(".jsp");
-	resolver.setViewClass(JstlView.class);
-	return resolver;
-	}*/
 }

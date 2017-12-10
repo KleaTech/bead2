@@ -2,12 +2,9 @@
 package hu.kleatech.bead2.service;
 
 import hu.kleatech.bead2.dao.PencilRepository;
-import hu.kleatech.bead2.model.Color;
-import hu.kleatech.bead2.model.Pencil;
-import hu.kleatech.bead2.model.PencilCase;
+import hu.kleatech.bead2.model.*;
 import java.util.List;
 import javax.annotation.Resource;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -27,6 +24,9 @@ public class PencilService {
 	}
 	public void removePencil(Long id) {
 		pencilRepository.delete(id);
+	}
+	public void removePencils(Iterable<Pencil> pencils) {
+		pencilRepository.deleteInBatch(pencils);
 	}
 	public void sharpenPencil(Pencil pencil, int percentage) {
 		pencil.setLength(pencil.getLength()-percentage/10);
