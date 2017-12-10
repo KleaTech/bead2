@@ -6,6 +6,15 @@ function addPencilCase() {
     .fail(function(data){alert(data.responseText);});
 }
 
+function deletePencilCase(caller) {
+    var id = $(caller).parent().find("[name='pencilCaseId']").val();
+    $.get("/pencilCase"
+	,{id:id}
+	,function(data){location.reload(true);}
+	,"json")
+    .fail(function(data){alert(data.responseText);});
+}
+
 function newPencil(caller) {
     var newfield = $(caller).siblings(".newfield").get(0);
     if (newfield.style.display === "none") newfield.style.display = "inline-block";

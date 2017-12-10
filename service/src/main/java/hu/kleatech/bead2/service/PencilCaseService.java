@@ -27,6 +27,10 @@ public class PencilCaseService {
 		pencilCaseRepository.delete(pc);
 	}
 
+	public void removePencilCaseWithPencils(Long id) {
+		removePencilCaseWithPencils(pencilCaseRepository.findOne(id));
+	}
+
 	public boolean transferPencil(Pencil pencil, PencilCase from, PencilCase to) {
 		if (!from.getPencils().contains(pencil)) return false;
 		from.removePencil(pencil);

@@ -24,14 +24,21 @@
 	    <div id="spacer"></div>
 
 	    <div id="bodydiv">
-		<h1 id="pencilcaseheader">Pencil cases</h1>
+		<h1 id="pencilcaseheader">Maintenance center</h1>
+		<p>Below you can see your pencil cases with the pencils in each one. You can add new pencil
+		cases, delete them, and you can add pencils to each of them. To add a new pencil to a case,
+		click on the "New pencil" button and than set the properties of the new pencil. Once you are
+		done, click the add button.
+		Then you can use your pencils, sharpen them or even break them. The length of them will
+		decrease accordingly.</p>
 		<button id="newpencilcasebutton" onclick="addPencilCase()">New pencil case</button>
 		<br/>
 		<c:forEach items="${allPencilCase}" var="PencilCase">
 		    <div class="pencilcase">
 			<button class="newpencilbutton" onclick="newPencil(this)">New pencil</button>
+			<button class="deletecasebutton" onclick="deletePencilCase(this)">Delete case</button>
 			<div class="newfield" style="display:none">
-			    <h1>New pencil</h1>
+			    <h2>New pencil</h2>
 			    <form class="newform">
 				<input type="hidden" name="pencilCaseId" value="<c:out value="${PencilCase.id}"/>"/>
 				<select name="color">
@@ -44,7 +51,7 @@
 				<input type="range" name="length"/><br/>
 				Sharpness:
 				<input type="range" name="sharpness"/><br/>
-				<input type="button" value="Add" onclick="addPencil(this)"/>
+				<input class="addpencilbutton" type="button" value="Add" onclick="addPencil(this)"/>
 			    </form>
 			</div>
 			<c:forEach items="${PencilCase.pencils}" var="Pencil">
@@ -60,7 +67,6 @@
 				<div></div>
 				<button class="deletebutton" onclick="deletePencil(this)">Delete</button>
 				<button class="sharpenbutton" onclick="sharpenPencil(this)">Sharpen</button>
-				<div></div>
 				<button class="usebutton" onclick="usePencil(this)">Use</button>
 				<button class="brakeButton" onclick="brakePencil(this)">Brake</button>
 				<div class="percentagefield" style="display:none">

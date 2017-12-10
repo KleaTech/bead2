@@ -53,6 +53,17 @@ public class HomeController {
 		}
 	}
 
+	@GetMapping("/pencilCase")
+	public ResponseEntity<String> deletePencilCase(@RequestParam("id") Long id) {
+		try {
+			pencilCaseService.removePencilCaseWithPencils(id);
+			return responseEntity("Pencil case deleted", HttpStatus.OK);
+		}
+		catch (Exception e) {
+			return responseEntity("Unexpected error", HttpStatus.BAD_REQUEST);
+		}
+	}
+
 	@PostMapping("/pencil")
 	public ResponseEntity<String> addPencil(@RequestBody PencilTransfer pencilTransfer) {
 		try {

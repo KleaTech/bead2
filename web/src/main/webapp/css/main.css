@@ -3,7 +3,6 @@ body {
     background-size: 40%;
     background-position: 50% 20%;
 }
-
 #maindiv {
     background: transparent;
     position: relative;
@@ -14,13 +13,11 @@ body {
 #headerpic {
     width: 1100px;
 }
-
 #menu {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
-
 .menuitem:link, .menuitem:visited {
     display: block;
     width: 358px;
@@ -32,7 +29,6 @@ body {
     text-decoration: none;
     text-transform: uppercase;
 }
-
 .menuitem:active, .menuitem:hover {
     background-color: #F2CA30;
 }
@@ -44,33 +40,98 @@ body {
 
 #bodydiv {
     background: rgba(255, 255, 255, 0.9);
-    overflow-x: auto;
     width: 100%;
+    padding: 20px;
+}
+p {
+    text-indent: 20px;
 }
 
 .pencil {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-bottom: 2px blue solid;
+    color: navy;
+}
+.deletebutton, .sharpenbutton, .brakeButton, .usebutton {
+    background-color: dodgerblue;
+    padding: 5px 10px;
+    margin: 5px 0px;
+}
+.deletebutton:hover, .sharpenbutton:hover, .brakeButton:hover, .usebutton:hover {
+    background-color: deepskyblue;
+    padding: 5px 10px;
+    margin: 5px 0px;
 }
 
 .pencilcase {
-    margin-bottom: 20px;
-    width: 200px;
+    margin: 20px 8px;
+    width: 245px;
     display: inline-block;
     vertical-align: top;
+    background: rgba(50, 255, 50, 0.3);
+    padding: 3px;
+}
+.newpencilbutton {
+    margin-bottom: 40px;
+    background-color: blue;
+}
+.newpencilbutton:hover {
+    background-color: royalblue;
+}
+.deletecasebutton {
+    margin-bottom: 40px;
+    background-color: limegreen;
+    margin-left: 10px;
+}
+.deletecasebutton:hover {
+    background-color: lime;
+}
+.newfield {
+    padding-left: 20px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-color: navy;
+    border-style: solid;
+    border-width: 2px;
+    background: rgba(50, 50, 255, 0.3);
+}
+.newfield h2 {
+    color: navy;
+}
+.sendbutton, .addpencilbutton {
+    background-color: lightblue;
+    color: navy;
+}
+.sendbutton:hover, .addpencilbutton:hover {
+    background-color: lightcyan;
+    color: navy;
 }
 
 .left {
     display:table-cell;
 }
-
 .right {
     display:table-cell;
 }
 
-.newfield {
-    padding-left: 20px;
+button, input[type=button] {
+    display: inline-block;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.5);
 }
 
-.newpencilbutton {
-    display: block;
+#newpencilcasebutton {
+    background-color: limegreen;
+    font-weight: bold;
+}
+#newpencilcasebutton:hover {
+    background-color: lime;
 }
