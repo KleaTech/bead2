@@ -6,19 +6,19 @@ import java.util.Objects;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "PencilTable")
+@Table(name = "penciltable")
 public class Pencil implements Serializable {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "color")
 	private Color color;
 	@Column(name = "brand")
 	private String brand;
-	@Column(name = "lengthColumn") //percentage
+	@Column(name = "lengthcolumn") //percentage
 	private int length;
 	@Column(name = "sharpness")
 	private int sharpness; //percentaage
 	@ManyToOne
-	@JoinColumn(name = "pencilCase")
+	@JoinColumn(name = "pencilcase")
 	private PencilCase pencilCase;
 	@Id
 	@GeneratedValue

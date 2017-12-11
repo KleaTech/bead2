@@ -8,7 +8,7 @@ import java.util.Objects;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "PencilCase")
+@Table(name = "pencilcase")
 public class PencilCase implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "owner")

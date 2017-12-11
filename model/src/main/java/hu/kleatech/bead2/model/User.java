@@ -8,11 +8,11 @@ import java.util.Objects;
 import javax.persistence.*;
 
 @Entity
-@Table(name="UserTable")
+@Table(name="usertable")
 public class User implements Serializable {
 	@Column(name="name")
 	private String name;
-	@Column(name="uniqueAlias")
+	@Column(name="uniquealias")
 	private String uniqueAlias;
 	@Column(name="passwd")
 	private String passwd;
